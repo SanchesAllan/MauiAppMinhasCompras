@@ -1,8 +1,8 @@
 ﻿using SQLite;
 
-namespace MauiAppMinhasCompras.Resources.Models
+namespace MauiAppMinhasCompras.Models
 {
-    internal class Produto
+    public class Produto
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; } 
