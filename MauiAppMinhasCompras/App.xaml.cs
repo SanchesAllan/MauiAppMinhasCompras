@@ -1,7 +1,21 @@
-﻿namespace MauiAppMinhasCompras
+﻿using MauiAppMinhasCompras.Helpers;
+
+namespace MauiAppMinhasCompras
 {
     public partial class App : Application
     {
+        static SQLiteDatabaseHelper _db;
+        {
+            get
+            {
+                if(_db == null)
+                {
+                    _db = new SQLiteDatabaseHelper(".... db3");
+                }
+
+                return _db;
+            }
+        }
         public App()
         {
             InitializeComponent();
