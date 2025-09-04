@@ -5,12 +5,19 @@ namespace MauiAppMinhasCompras
     public partial class App : Application
     {
         static SQLiteDatabaseHelper _db;
+
+        public static SQLiteDatabaseHelper Db
         {
             get
             {
                 if(_db == null)
                 {
-                    _db = new SQLiteDatabaseHelper(".... db3");
+                    string path = Path.Combine(
+                        Environment.GetFolderPath(
+                            Environment.SpecialFolder.LocalApplicationData),
+                        "banco_sqite_compras.db3");
+
+                    _db = new SQLiteDatabaseHelper(path);
                 }
 
                 return _db;
