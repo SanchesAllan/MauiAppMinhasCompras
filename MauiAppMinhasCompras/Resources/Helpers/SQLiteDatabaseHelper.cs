@@ -29,9 +29,7 @@ namespace MauiAppMinhasCompras.Helpers
 
         public Task<int> Delete(int id) 
         {
-            return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
-            
-            _conn.DeleteAsync(id);  
+            return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);  
         }
 
         public Task<List<Produto>> GetAll()
@@ -41,11 +39,9 @@ namespace MauiAppMinhasCompras.Helpers
 
         public Task<List<Produto>> Search(string q)
         {
-            string sql = "SELECT  * Produto WHERE descricao LIKE '%%" + q + "%'";
+           string sql = "SELECT * FROM Produto WHERE descricao LIKE '%" + q + "%'";
 
             return _conn.QueryAsync<Produto>(sql);
         }
-
-
     }
 }
