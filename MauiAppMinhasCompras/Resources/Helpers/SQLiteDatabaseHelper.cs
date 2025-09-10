@@ -43,5 +43,12 @@ namespace MauiAppMinhasCompras.Helpers
 
             return _conn.QueryAsync<Produto>(sql);
         }
+
+        public Task<List<Produto>> GetByPeriod(DateTime inicio, DateTime fim)
+        {
+            string sql = "SELECT * FROM Produto WHERE DataCadastro BETWEEN ? AND ?";
+            return _conn.QueryAsync<Produto>(sql, inicio, fim);
+        }
+
     }
 }
